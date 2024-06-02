@@ -26,7 +26,6 @@ fn main() {
                 let mut stdout = stdout.lock();
 
                 // files を入力順に stdout に出力する
-                // 最後のファイルは改行をしない
                 for file in files {
                     let content = match get_file_data(file) {
                         Ok(content) => content,
@@ -50,7 +49,6 @@ fn main() {
                 let mut stdin = stdin.lock();
                 stdin.read_to_string(&mut buffer).unwrap();
 
-                // 標準出力に書き込む
                 let stdout = std::io::stdout();
                 let mut stdout = stdout.lock();
                 write!(&mut stdout, "{}", buffer).unwrap();

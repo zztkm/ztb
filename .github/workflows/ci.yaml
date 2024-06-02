@@ -1,0 +1,27 @@
+name: CI
+
+on: [push]
+
+jobs:
+  ci:
+    name: Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      - name: Install nightly toolchain
+        run: |
+          rustup toolchain install nightly
+          rustup default nightly
+          rustup component add rustfmt clippy --toolchain nightly
+
+      - name: Run cargo check
+        run: cargo check
+
+      - name: Run fmt check
+        run: cargo fmt --check
+
+      - name: Run lint
+        run: cargo clippy
+

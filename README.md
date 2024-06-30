@@ -4,7 +4,17 @@ zztkm tool box.
 
 Rust の練習がてら Linux コマンドを再実装したり、自分がほしいコマンドを実装したりしています。
 
+## Install
+
+```bash
+git clone https://github.com/zztkm/ztb.git
+cd ztb
+
+cargo install --path .
+```
+
 ## Usage
+
 
 ```bash
 # 引数がない場合は標準入力から読み取ります

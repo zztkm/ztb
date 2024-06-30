@@ -4,7 +4,9 @@
 use clap::{Parser, Subcommand};
 use std::io::{Read, Write};
 
+/// A zztkm toolbox
 #[derive(Parser)]
+#[command(version, about, long_about = None)]
 struct Cli {
     #[command(subcommand)]
     command: Commands,
@@ -12,6 +14,7 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
+    /// Concatenate and print files
     Cat { files: Option<Vec<String>> },
 }
 
